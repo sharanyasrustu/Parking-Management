@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users | Sharanya Parking - Smart Parking Management System</title>
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2325D0C1'><path d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/></svg>">
+</head>
+<body data-page="users">
+    <div class="app-layout">
+        
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="brand-logo-container" style="text-decoration:none;">
+                    <div class="brand-logo">
+                        <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="10" fill="url(#brandGrad)" />
+                            <path d="M14 10H22C25.3137 10 28 12.6863 28 16C28 19.3137 25.3137 22 22 22H18V30H14V10Z" fill="#0B1020" />
+                            <path d="M18 14H22C23.1046 14 24 14.8954 24 16C24 17.1046 23.1046 18 22 18H18V14Z" fill="#25D0C1" />
+                            <circle cx="29" cy="27" r="4" fill="#8B7CFF" />
+                            <circle cx="29" cy="27" r="2" fill="#F4F7FF" />
+                            <defs>
+                                <linearGradient id="brandGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#25D0C1" />
+                                    <stop offset="1" stop-color="#8B7CFF" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-title">SHARANYA</span>
+                        <span class="brand-subtitle">SMART PARKING</span>
+                    </div>
+                </a>
+                <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close sidebar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="sidebar-nav">
+                <span class="nav-section-title">CORE OPERATIONS</span>
+                <a href="index.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="entry.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
+                    <span>Parking Entry</span>
+                    <span class="nav-badge pulse-badge">NEW</span>
+                </a>
+                <a href="exit.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                    <span>Parking Exit</span>
+                    <span class="nav-badge active-count-badge" id="sidebarActiveCount">0</span>
+                </a>
+                <a href="slots.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                    <span>Parking Slots</span>
+                </a>
+
+                <span class="nav-section-title">MANAGEMENT</span>
+                <a href="vehicles.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.5a1 1 0 0 0-.8.4L2 11v5h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+                    <span>Vehicles</span>
+                </a>
+                <a href="users.html" class="nav-item active">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span>Users</span>
+                </a>
+                <a href="history.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Parking History</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Bottom: Rates & Admin Info -->
+            <div class="sidebar-footer">
+                <button class="tariff-pill-btn" id="openTariffModalBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M17 10l-5-4-5 4M17 14l-5 4-5-4"/></svg>
+                    <span>Tariff Rates</span>
+                </button>
+                <div class="admin-profile-card">
+                    <div class="admin-avatar">SR</div>
+                    <div class="admin-details">
+                        <span class="admin-name">Sharanya Rao</span>
+                        <span class="admin-role">System Administrator</span>
+                    </div>
+                    <div class="system-status-indicator" title="Database Connected"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT WRAPPER -->
+        <main class="main-content">
+            
+            <!-- TOP HEADER -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open sidebar">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    </button>
+                    <div class="header-greeting">
+                        <h2>User <span class="highlight-text">Management</span></h2>
+                        <div class="live-datetime" id="liveDateTime">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <span id="currentTimeDisplay">Loading time...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="global-search-box">
+                        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
+                        <input type="text" id="globalSearchInput" placeholder="Quick search vehicles, owners, slots..." autocomplete="off">
+                        <kbd class="search-kbd">/</kbd>
+                    </div>
+
+                    <button class="btn btn-primary btn-sm" onclick="app.showModal('userModal')">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                        <span>Add User</span>
+                    </button>
+
+                    <button class="icon-btn" id="notificationBtn" title="System Notifications">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                        <span class="icon-badge"></span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- BODY CONTENT: USERS -->
+            <div class="content-body">
+                <section class="view-section active" id="view-users">
+                    <div class="section-top-bar">
+                        <div>
+                            <h1 class="view-title">Registered Customer & Staff Accounts</h1>
+                            <p class="view-subtitle">Manage customer profiles, administrative roles, contact details, and vehicle ownerships.</p>
+                        </div>
+                        <button class="btn btn-primary" onclick="app.showModal('userModal')">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
+                            <span>Add New User</span>
+                        </button>
+                    </div>
+
+                    <div class="content-card">
+                        <div class="card-header-flex">
+                            <div class="search-box-filter flex-1">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
+                                <input type="text" id="usersSearchInput" placeholder="Search users by name, phone, or email...">
+                            </div>
+                            <div class="count-pill">Total: <strong id="usersTotalDisplay">0</strong> users</div>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="data-table" id="usersTable">
+                                <thead>
+                                    <tr>
+                                        <th>User Details</th>
+                                        <th>Phone Number</th>
+                                        <th>Email Address</th>
+                                        <th>Role</th>
+                                        <th>Vehicles Owned</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="usersTableBody">
+                                    <tr>
+                                        <td colspan="6" class="table-loading">Loading users...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODAL: ADD / EDIT USER -->
+    <div class="modal-backdrop" id="userModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title" id="userModalTitle">Register New User</h3>
+                <button class="modal-close-btn" onclick="app.closeModal('userModal')">&times;</button>
+            </div>
+            <form id="userForm">
+                <div class="modal-body">
+                    <input type="hidden" id="userIdInput">
+                    <div class="form-group">
+                        <label for="userNameInput">Full Name <span class="req">*</span></label>
+                        <input type="text" id="userNameInput" class="form-control" placeholder="e.g. Sharanya Rao" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPhoneInput">Phone Number <span class="req">*</span></label>
+                        <input type="tel" id="userPhoneInput" class="form-control" placeholder="e.g. 9876543210" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmailInput">Email Address <span class="req">*</span></label>
+                        <input type="email" id="userEmailInput" class="form-control" placeholder="e.g. sharanya@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userRoleInput">User Role</label>
+                        <select id="userRoleInput" class="form-control">
+                            <option value="user">Regular User</option>
+                            <option value="vip">VIP Member</option>
+                            <option value="staff">Staff Member</option>
+                            <option value="admin">System Administrator</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="app.closeModal('userModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveUserBtn">Save User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: TARIFF RATES INFO -->
+    <div class="modal-backdrop" id="tariffModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Tariff Rate Structure</h3>
+                <button class="modal-close-btn" onclick="app.closeModal('tariffModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-text">Sharanya Parking calculates tariffs using the ceiling of parking duration in hours, with a minimum billable duration of 1 hour.</p>
+                <div class="tariff-cards-list">
+                    <div class="tariff-item">
+                        <div class="tariff-icon two-wheel">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h-3.5L9 12h9.5L16 6h3"/><path d="M12 17.5V14l-3-4"/></svg>
+                        </div>
+                        <div class="tariff-info">
+                            <h4>Two-wheelers</h4>
+                            <span>Motorcycles, Scooters, Mopeds</span>
+                        </div>
+                        <div class="tariff-price">₹20 <span>/ hour</span></div>
+                    </div>
+                    <div class="tariff-item">
+                        <div class="tariff-icon four-wheel">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.5a1 1 0 0 0-.8.4L2 11v5h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+                        </div>
+                        <div class="tariff-info">
+                            <h4>Four-wheelers</h4>
+                            <span>Sedans, Hatchbacks, SUVs, EVs</span>
+                        </div>
+                        <div class="tariff-price">₹40 <span>/ hour</span></div>
+                    </div>
+                    <div class="tariff-item">
+                        <div class="tariff-icon heavy-wheel">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        </div>
+                        <div class="tariff-info">
+                            <h4>Heavy Vehicles</h4>
+                            <span>Buses, Trucks, Logistics Vans</span>
+                        </div>
+                        <div class="tariff-price">₹60 <span>/ hour</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="app.closeModal('tariffModal')">Got it</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATIONS -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

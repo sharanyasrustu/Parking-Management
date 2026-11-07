@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Sharanya Parking - Smart Parking Management System</title>
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2325D0C1'><path d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/></svg>">
+</head>
+<body data-page="dashboard">
+    <div class="app-layout">
+        
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="brand-logo-container" style="text-decoration:none;">
+                    <div class="brand-logo">
+                        <svg class="logo-svg" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="40" height="40" rx="10" fill="url(#brandGrad)" />
+                            <path d="M14 10H22C25.3137 10 28 12.6863 28 16C28 19.3137 25.3137 22 22 22H18V30H14V10Z" fill="#0B1020" />
+                            <path d="M18 14H22C23.1046 14 24 14.8954 24 16C24 17.1046 23.1046 18 22 18H18V14Z" fill="#25D0C1" />
+                            <circle cx="29" cy="27" r="4" fill="#8B7CFF" />
+                            <circle cx="29" cy="27" r="2" fill="#F4F7FF" />
+                            <defs>
+                                <linearGradient id="brandGrad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#25D0C1" />
+                                    <stop offset="1" stop-color="#8B7CFF" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="brand-text">
+                        <span class="brand-title">SHARANYA</span>
+                        <span class="brand-subtitle">SMART PARKING</span>
+                    </div>
+                </a>
+                <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close sidebar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="sidebar-nav">
+                <span class="nav-section-title">CORE OPERATIONS</span>
+                <a href="index.html" class="nav-item active">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="entry.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
+                    <span>Parking Entry</span>
+                    <span class="nav-badge pulse-badge">NEW</span>
+                </a>
+                <a href="exit.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                    <span>Parking Exit</span>
+                    <span class="nav-badge active-count-badge" id="sidebarActiveCount">0</span>
+                </a>
+                <a href="slots.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                    <span>Parking Slots</span>
+                </a>
+
+                <span class="nav-section-title">MANAGEMENT</span>
+                <a href="vehicles.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.5a1 1 0 0 0-.8.4L2 11v5h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+                    <span>Vehicles</span>
+                </a>
+                <a href="users.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span>Users</span>
+                </a>
+                <a href="history.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span>Parking History</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar Bottom: Rates & Admin Info -->
+            <div class="sidebar-footer">
+                <button class="tariff-pill-btn" id="openTariffModalBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M17 10l-5-4-5 4M17 14l-5 4-5-4"/></svg>
+                    <span>Tariff Rates</span>
+                </button>
+                <div class="admin-profile-card">
+                    <div class="admin-avatar">SR</div>
+                    <div class="admin-details">
+                        <span class="admin-name">Sharanya Rao</span>
+                        <span class="admin-role">System Administrator</span>
+                    </div>
+                    <div class="system-status-indicator" title="Database Connected"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT WRAPPER -->
+        <main class="main-content">
+            
+            <!-- TOP HEADER -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open sidebar">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+                    </button>
+                    <div class="header-greeting">
+                        <h2>Welcome back, <span class="highlight-text">Admin</span>!</h2>
+                        <div class="live-datetime" id="liveDateTime">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <span id="currentTimeDisplay">Loading time...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <!-- Global Search Bar -->
+                    <div class="global-search-box">
+                        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
+                        <input type="text" id="globalSearchInput" placeholder="Quick search vehicles, owners, slots..." autocomplete="off">
+                        <kbd class="search-kbd">/</kbd>
+                    </div>
+
+                    <!-- Header Quick Actions -->
+                    <a href="entry.html" class="btn btn-primary btn-sm header-park-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+                        <span>Park Vehicle</span>
+                    </a>
+
+                    <button class="icon-btn" id="notificationBtn" title="System Notifications">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                        <span class="icon-badge"></span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- BODY CONTENT: DASHBOARD -->
+            <div class="content-body">
+                <section class="view-section active" id="view-dashboard">
+                    <!-- Hero Banner -->
+                    <div class="dashboard-hero">
+                        <div class="hero-content">
+                            <span class="hero-tag">B.Tech CSE Capstone Mini-Project</span>
+                            <h1 class="hero-title">Intelligent Real-Time Parking System</h1>
+                            <p class="hero-desc">Monitor live occupancy, assign smart slots, manage vehicle throughput, and calculate automated hourly parking tariffs powered by MySQL transactions.</p>
+                            <div class="hero-rates-strip">
+                                <div class="rate-badge"><span class="rate-dot two-wheel"></span> Two-wheelers: ₹20/hr</div>
+                                <div class="rate-badge"><span class="rate-dot four-wheel"></span> Four-wheelers: ₹40/hr</div>
+                                <div class="rate-badge"><span class="rate-dot heavy-wheel"></span> Heavy Vehicles: ₹60/hr</div>
+                            </div>
+                        </div>
+                        <div class="hero-actions">
+                            <a href="entry.html" class="btn btn-primary">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
+                                <span>Park a Vehicle</span>
+                            </a>
+                            <a href="exit.html" class="btn btn-secondary">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                                <span>Process Exit</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Live Statistics Cards -->
+                    <div class="stats-grid">
+                        <div class="stat-card" style="--accent-color: #25D0C1;">
+                            <div class="stat-icon-wrapper">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Total Parking Slots</span>
+                                <h3 class="stat-value" id="statTotalSlots">0</h3>
+                                <span class="stat-subtext">Capacity Across All Zones</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" style="--accent-color: #36D399;">
+                            <div class="stat-icon-wrapper success">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Available Slots</span>
+                                <h3 class="stat-value" id="statAvailableSlots">0</h3>
+                                <span class="stat-subtext text-success" id="statOccupancyRate">Ready for Allocation</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" style="--accent-color: #FB7185;">
+                            <div class="stat-icon-wrapper danger">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Occupied Slots</span>
+                                <h3 class="stat-value" id="statOccupiedSlots">0</h3>
+                                <span class="stat-subtext text-danger">Currently Parked</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" style="--accent-color: #8B7CFF;">
+                            <div class="stat-icon-wrapper secondary">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.5a1 1 0 0 0-.8.4L2 11v5h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Registered Vehicles</span>
+                                <h3 class="stat-value" id="statRegisteredVehicles">0</h3>
+                                <span class="stat-subtext">Two, Four & Heavy Types</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" style="--accent-color: #38BDF8;">
+                            <div class="stat-icon-wrapper info">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Registered Users</span>
+                                <h3 class="stat-value" id="statRegisteredUsers">0</h3>
+                                <span class="stat-subtext">Vehicle Owners & Drivers</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card" style="--accent-color: #FBBF24;">
+                            <div class="stat-icon-wrapper warning">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-label">Active Parking Records</span>
+                                <h3 class="stat-value" id="statActiveRecords">0</h3>
+                                <span class="stat-subtext text-warning">Live In-Premises Sessions</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- QUICK ACTIONS BAR -->
+                    <div class="quick-actions-card">
+                        <div class="card-header-simple">
+                            <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> Quick Actions</h3>
+                            <span class="muted-label">Execute standard operations with one click</span>
+                        </div>
+                        <div class="quick-action-buttons">
+                            <button class="action-tile" onclick="app.showModal('userModal')">
+                                <div class="action-tile-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" x2="19" y1="8" y2="14"/><line x1="22" x2="16" y1="11" y2="11"/></svg></div>
+                                <div class="action-tile-text">
+                                    <span class="tile-title">Register New User</span>
+                                    <span class="tile-desc">Add vehicle owner</span>
+                                </div>
+                            </button>
+                            <button class="action-tile" onclick="app.showModal('vehicleModal')">
+                                <div class="action-tile-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg></div>
+                                <div class="action-tile-text">
+                                    <span class="tile-title">Add Vehicle</span>
+                                    <span class="tile-desc">Map to registered user</span>
+                                </div>
+                            </button>
+                            <button class="action-tile" onclick="app.showModal('slotModal')">
+                                <div class="action-tile-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" x2="12" y1="8" y2="16"/><line x1="8" x2="16" y1="12" y2="12"/></svg></div>
+                                <div class="action-tile-text">
+                                    <span class="tile-title">Add Parking Slot</span>
+                                    <span class="tile-desc">Expand slot capacity</span>
+                                </div>
+                            </button>
+                            <a href="entry.html" class="action-tile highlight" style="text-decoration:none;">
+                                <div class="action-tile-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg></div>
+                                <div class="action-tile-text">
+                                    <span class="tile-title">Park a Vehicle</span>
+                                    <span class="tile-desc">Assign slot & check in</span>
+                                </div>
+                            </a>
+                            <a href="exit.html" class="action-tile" style="text-decoration:none;">
+                                <div class="action-tile-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg></div>
+                                <div class="action-tile-text">
+                                    <span class="tile-title">Process Exit</span>
+                                    <span class="tile-desc">Calculate fee & receipt</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- VISUAL PARKING AVAILABILITY GRID SECTION -->
+                    <div class="content-card dashboard-slots-section">
+                        <div class="card-header-flex">
+                            <div>
+                                <h3 class="card-title">Live Parking Bay Overview</h3>
+                                <p class="card-subtitle">Interactive visual status of all parking slots. Click any slot to view or take action.</p>
+                            </div>
+                            <div class="filter-controls">
+                                <div class="filter-pill-group" id="dashboardSlotStatusFilter">
+                                    <button class="pill-btn active" data-filter="All">All (<span id="pillCountAll">0</span>)</button>
+                                    <button class="pill-btn pill-avail" data-filter="Available">Available (<span id="pillCountAvail">0</span>)</button>
+                                    <button class="pill-btn pill-occ" data-filter="Occupied">Occupied (<span id="pillCountOcc">0</span>)</button>
+                                    <button class="pill-btn pill-maint" data-filter="Maintenance">Maintenance (<span id="pillCountMaint">0</span>)</button>
+                                </div>
+                                <select class="form-select-sm" id="dashboardSlotTypeFilter">
+                                    <option value="All">All Vehicle Types</option>
+                                    <option value="Two-wheeler">Two-wheelers</option>
+                                    <option value="Four-wheeler">Four-wheelers</option>
+                                    <option value="Heavy Vehicle">Heavy Vehicles</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Slots Grid -->
+                        <div class="parking-slots-grid" id="dashboardSlotsGrid">
+                            <div class="loading-state">
+                                <div class="spinner"></div>
+                                <p>Loading parking bays...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RECENT PARKING ACTIVITY -->
+                    <div class="content-card">
+                        <div class="card-header-flex">
+                            <div>
+                                <h3 class="card-title">Recent Parking Transactions</h3>
+                                <p class="card-subtitle">Real-time audit log of vehicle arrivals, departures, and collected fees.</p>
+                            </div>
+                            <a href="history.html" class="btn btn-secondary btn-sm" style="text-decoration:none;">
+                                <span>View Full History</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                            </a>
+                        </div>
+
+                        <div class="table-container">
+                            <table class="data-table" id="recentActivityTable">
+                                <thead>
+                                    <tr>
+                                        <th>Vehicle No.</th>
+                                        <th>Vehicle Type & Model</th>
+                                        <th>Driver / Owner</th>
+                                        <th>Assigned Slot</th>
+                                        <th>Entry Time</th>
+                                        <th>Exit Time</th>
+                                        <th>Fee</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recentActivityTableBody">
+                                    <tr>
+                                        <td colspan="9" class="table-loading">Loading recent activity...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- MODALS (USER, VEHICLE, SLOT, EXIT, RECEIPT, TARIFF) -->
+    <div class="modal-backdrop" id="userModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title" id="userModalTitle">Register New User</h3>
+                <button class="modal-close-btn" onclick="app.closeModal('userModal')">&times;</button>
+            </div>
+            <form id="userForm">
+                <div class="modal-body">
+                    <input type="hidden" id="userIdInput">
+                    <div class="form-group">
+                        <label for="userNameInput">Full Name <span class="req">*</span></label>
+                        <input type="text" id="userNameInput" class="form-control" placeholder="e.g. Sharanya Rao" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userPhoneInput">Phone Number <span class="req">*</span></label>
+                        <input type="tel" id="userPhoneInput" class="form-control" placeholder="e.g. 9876543210" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userEmailInput">Email Address <span class="req">*</span></label>
+                        <input type="email" id="userEmailInput" class="form-control" placeholder="e.g. sharanya@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="userRoleInput">User Role</label>
+                        <select id="userRoleInput" class="form-control">
+                            <option value="user">Regular User</option>
+                            <option value="vip">VIP Member</option>
+                            <option value="staff">Staff Member</option>
+                            <option value="admin">System Administrator</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="app.closeModal('userModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveUserBtn">Save User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="vehicleModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title" id="vehicleModalTitle">Register New Vehicle</h3>
+                <button class="modal-close-btn" onclick="app.closeModal('vehicleModal')">&times;</button>
+            </div>
+            <form id="vehicleForm">
+                <div class="modal-body">
+                    <input type="hidden" id="vehicleIdInput">
+                    <div class="form-group">
+                        <label for="vehicleOwnerSelect">Vehicle Owner <span class="req">*</span></label>
+                        <select id="vehicleOwnerSelect" class="form-control" required>
+                            <option value="">-- Select Owner --</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleNumberInput">Vehicle Registration Number <span class="req">*</span></label>
+                        <input type="text" id="vehicleNumberInput" class="form-control text-uppercase" placeholder="e.g. KA-01-MJ-5050" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleTypeSelect">Vehicle Category <span class="req">*</span></label>
+                        <select id="vehicleTypeSelect" class="form-control" required>
+                            <option value="Two-wheeler">Two-wheeler (₹20/hr)</option>
+                            <option value="Four-wheeler" selected>Four-wheeler (₹40/hr)</option>
+                            <option value="Heavy Vehicle">Heavy Vehicle (₹60/hr)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicleModelInput">Vehicle Make & Model <span class="req">*</span></label>
+                        <input type="text" id="vehicleModelInput" class="form-control" placeholder="e.g. Hyundai Creta SX (O)" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="app.closeModal('vehicleModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveVehicleBtn">Save Vehicle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="slotModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title" id="slotModalTitle">Add Parking Slot</h3>
+                <button class="modal-close-btn" onclick="app.closeModal('slotModal')">&times;</button>
+            </div>
+            <form id="slotForm">
+                <div class="modal-body">
+                    <input type="hidden" id="slotIdInput">
+                    <div class="form-group">
+                        <label for="slotNumberInput">Slot Number / Identifier <span class="req">*</span></label>
+                        <input type="text" id="slotNumberInput" class="form-control text-uppercase" placeholder="e.g. A-05" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="slotVehicleTypeSelect">Vehicle Category <span class="req">*</span></label>
+                        <select id="slotVehicleTypeSelect" class="form-control" required>
+                            <option value="Two-wheeler">Two-wheeler</option>
+                            <option value="Four-wheeler" selected>Four-wheeler</option>
+                            <option value="Heavy Vehicle">Heavy Vehicle</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="slotLocationInput">Physical Location / Zone <span class="req">*</span></label>
+                        <input type="text" id="slotLocationInput" class="form-control" placeholder="e.g. Ground Floor - Zone A" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="slotStatusSelect">Operational Status</label>
+                        <select id="slotStatusSelect" class="form-control">
+                            <option value="Available">Available</option>
+                            <option value="Maintenance">Maintenance</option>
+                            <option value="Occupied" disabled>Occupied (Managed via check-in)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="app.closeModal('slotModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveSlotBtn">Save Slot</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL: PROCESS VEHICLE EXIT CONFIRMATION -->
+    <div class="modal-backdrop" id="exitModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Confirm Vehicle Exit</h3>
+                <button class="modal-close-btn" onclick="app.closeModal('exitModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="exitRecordIdInput">
+                <div class="exit-summary-card">
+                    <div class="exit-plate" id="exitVehicleNumber">-</div>
+                    <div class="exit-model" id="exitVehicleModel">-</div>
+
+                    <div class="exit-meta-grid">
+                        <div class="meta-item">
+                            <span class="meta-label">Driver / Owner</span>
+                            <span class="meta-val" id="exitOwnerName">-</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Slot Assigned</span>
+                            <span class="meta-val highlight" id="exitSlotNumber">-</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Entry Time</span>
+                            <span class="meta-val" id="exitEntryTime">-</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Exit Time (Now)</span>
+                            <span class="meta-val" id="exitCurrentTime">-</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Elapsed Duration</span>
+                            <span class="meta-val text-warning" id="exitDuration">-</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-label">Billable Hours</span>
+                            <span class="meta-val" id="exitBillableHours">-</span>
+                        </div>
+                    </div>
+
+                    <div class="exit-fee-highlight">
+                        <span class="fee-lbl">Total Parking Tariff</span>
+                        <span class="fee-amount" id="exitEstimatedFee">₹0.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="app.closeModal('exitModal')">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmProcessExitBtn" onclick="app.executeVehicleExit()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                    <span>Process Exit & Generate Receipt</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: PRINTABLE RECEIPT -->
+    <div class="modal-backdrop" id="receiptModal">
+        <div class="modal-dialog receipt-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Parking Payment Receipt</h3>
+                <button class="modal-close-btn" onclick="app.closeModal('receiptModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="receipt-paper" id="receiptPaper">
+                    <div class="receipt-header">
+                        <div class="receipt-brand">SHARANYA PARKING</div>
+                        <div class="receipt-subbrand">Smart Parking Management System</div>
+                        <div class="receipt-addr">Central Campus Tech Park, Bangalore</div>
+                        <div class="receipt-divider">================================</div>
+                    </div>
+
+                    <div class="receipt-meta">
+                        <div class="receipt-row">
+                            <span>Receipt #:</span>
+                            <strong id="recNumber">SP-REC-000000</strong>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Date & Time:</span>
+                            <span id="recDate">-</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Vehicle No:</span>
+                            <strong class="receipt-plate" id="recPlate">-</strong>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Category:</span>
+                            <span id="recType">-</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Owner / Driver:</span>
+                            <span id="recOwner">-</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Bay / Slot:</span>
+                            <strong id="recSlot">-</strong>
+                        </div>
+                        <div class="receipt-divider">--------------------------------</div>
+                    </div>
+
+                    <div class="receipt-timing">
+                        <div class="receipt-row">
+                            <span>Entry Time:</span>
+                            <span id="recEntry">-</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Exit Time:</span>
+                            <span id="recExit">-</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Duration:</span>
+                            <span id="recDuration">-</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Billable Hours:</span>
+                            <span id="recHours">1 hr</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Hourly Rate:</span>
+                            <span id="recRate">₹40.00 / hr</span>
+                        </div>
+                        <div class="receipt-divider">================================</div>
+                    </div>
+
+                    <div class="receipt-total-row">
+                        <span>TOTAL PAID:</span>
+                        <strong class="receipt-total-amt" id="recTotal">₹0.00</strong>
+                    </div>
+                    <div class="receipt-status-badge">PAID • THANK YOU</div>
+
+                    <div class="receipt-barcode">
+                        <div class="barcode-bars"></div>
+                        <span class="barcode-text" id="recBarcode">SP-000000-PARK</span>
+                    </div>
+
+                    <div class="receipt-footer">
+                        <p>Thank you for choosing Sharanya Parking!</p>
+                        <p>Computer-generated tax invoice. No signature required.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="app.closeModal('receiptModal')">Close</button>
+                <button type="button" class="btn btn-primary" onclick="window.print()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                    <span>Print Receipt</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: TARIFF RATES INFO -->
+    <div class="modal-backdrop" id="tariffModal">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3 class="modal-title">Tariff Rate Structure</h3>
+                <button class="modal-close-btn" onclick="app.closeModal('tariffModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-text">Sharanya Parking calculates tariffs using the ceiling of parking duration in hours, with a minimum billable duration of 1 hour.</p>
+                <div class="tariff-cards-list">
+                    <div class="tariff-item">
+                        <div class="tariff-icon two-wheel">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6h-3.5L9 12h9.5L16 6h3"/><path d="M12 17.5V14l-3-4"/></svg>
+                        </div>
+                        <div class="tariff-info">
+                            <h4>Two-wheelers</h4>
+                            <span>Motorcycles, Scooters, Mopeds</span>
+                        </div>
+                        <div class="tariff-price">₹20 <span>/ hour</span></div>
+                    </div>
+                    <div class="tariff-item">
+                        <div class="tariff-icon four-wheel">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.5a1 1 0 0 0-.8.4L2 11v5h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+                        </div>
+                        <div class="tariff-info">
+                            <h4>Four-wheelers</h4>
+                            <span>Sedans, Hatchbacks, SUVs, EVs</span>
+                        </div>
+                        <div class="tariff-price">₹40 <span>/ hour</span></div>
+                    </div>
+                    <div class="tariff-item">
+                        <div class="tariff-icon heavy-wheel">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        </div>
+                        <div class="tariff-info">
+                            <h4>Heavy Vehicles</h4>
+                            <span>Buses, Trucks, Logistics Vans</span>
+                        </div>
+                        <div class="tariff-price">₹60 <span>/ hour</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="app.closeModal('tariffModal')">Got it</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATIONS -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
